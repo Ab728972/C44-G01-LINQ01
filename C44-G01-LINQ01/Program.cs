@@ -1,4 +1,6 @@
-﻿namespace C44_G01_LINQ01
+﻿using System.Xml.Linq;
+
+namespace C44_G01_LINQ01
 {
     internal class Program
     {
@@ -75,6 +77,25 @@
                 var secondGreaterThan5 = numbers.Where(n => n > 5).Skip(1).FirstOrDefault();
 
                 Console.WriteLine(secondGreaterThan5);
+                Console.WriteLine();
+            }
+            #endregion
+            #region Bonus: Load and query Customers.xml
+            {
+                Console.WriteLine("=== Customers from XML ===");
+                XDocument doc = XDocument.Load("Customers.xml");
+
+                var customers = doc.Descendants("Customer")
+                    .Select(c => new {
+                        CustomerID = c.Attribute("CustomerID")?.Value,
+                        CompanyName = c.Element("CompanyName")?.Value,
+                        ContactName = c.Element("ContactName")?.Value
+                    });
+
+                foreach (var customer in customers.Take(5))
+                {
+                    Console.WriteLine($"{customer.CustomerID}: {customer.CompanyName} ({customer.ContactName})");
+                }
                 Console.WriteLine();
             }
             #endregion
