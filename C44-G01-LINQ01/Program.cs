@@ -28,6 +28,21 @@
                 Console.WriteLine();
             }
             #endregion
+
+            #region Problem 3: Digits with name shorter than value
+            {
+                Console.WriteLine("=== Digits with name shorter than value ===");
+                string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+                var result = digits.Where((name, index) => name.Length < index);
+
+                foreach (var item in result)
+                {
+                    Console.WriteLine($"{Array.IndexOf(digits, item)}: {item}");
+                }
+                Console.WriteLine();
+            }
+            #endregion
         }
 
     }
