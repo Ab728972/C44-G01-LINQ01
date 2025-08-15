@@ -58,6 +58,15 @@
                 Console.WriteLine();
             }
             #endregion
+            #region Problem 5: First product with price > 1000 or null
+            {
+                Console.WriteLine("=== First product with price > $1000 ===");
+                var expensiveProduct = ListGenerators.ProductList.FirstOrDefault(p => p.UnitPrice > 1000m);
+
+                Console.WriteLine(expensiveProduct?.ProductName ?? "No product found with price > $1000");
+                Console.WriteLine();
+            }
+            #endregion
         }
 
     }
