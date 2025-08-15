@@ -15,6 +15,19 @@
                 Console.WriteLine();
             }
             #endregion
+            #region Problem 2: Find all products in stock costing more than 3.00
+            {
+                Console.WriteLine("=== Products in stock > $3.00 ===");
+                var expensiveInStockProducts = ListGenerators.ProductList
+                    .Where(p => p.UnitsInStock > 0 && p.UnitPrice > 3.00m);
+
+                foreach (var product in expensiveInStockProducts)
+                {
+                    Console.WriteLine($"{product.ProductName} - {product.UnitPrice:C} - Stock: {product.UnitsInStock}");
+                }
+                Console.WriteLine();
+            }
+            #endregion
         }
 
     }
