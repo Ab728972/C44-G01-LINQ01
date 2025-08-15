@@ -67,6 +67,17 @@
                 Console.WriteLine();
             }
             #endregion
+            #region Problem 6: Second number greater than 5
+            {
+                Console.WriteLine("=== Second number > 5 ===");
+                int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+                var secondGreaterThan5 = numbers.Where(n => n > 5).Skip(1).FirstOrDefault();
+
+                Console.WriteLine(secondGreaterThan5);
+                Console.WriteLine();
+            }
+            #endregion
         }
 
     }
