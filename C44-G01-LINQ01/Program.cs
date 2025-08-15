@@ -28,7 +28,6 @@
                 Console.WriteLine();
             }
             #endregion
-
             #region Problem 3: Digits with name shorter than value
             {
                 Console.WriteLine("=== Digits with name shorter than value ===");
@@ -39,6 +38,22 @@
                 foreach (var item in result)
                 {
                     Console.WriteLine($"{Array.IndexOf(digits, item)}: {item}");
+                }
+                Console.WriteLine();
+            }
+            #endregion
+            #region Problem 4: First product out of stock
+            {
+                Console.WriteLine("=== First product out of stock ===");
+                var firstOutOfStock = ListGenerators.ProductList.FirstOrDefault(p => p.UnitsInStock == 0);
+
+                if (firstOutOfStock != null)
+                {
+                    Console.WriteLine($"{firstOutOfStock.ProductName} - {firstOutOfStock.UnitPrice:C}");
+                }
+                else
+                {
+                    Console.WriteLine("No out of stock products found");
                 }
                 Console.WriteLine();
             }
